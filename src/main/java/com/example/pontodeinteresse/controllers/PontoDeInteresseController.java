@@ -28,4 +28,9 @@ public class PontoDeInteresseController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(pontoDeInteresseService.cadastrarPontoDeInteresse(pontoDeInteresseDto));
     }
+
+    @PostMapping("/listarPorProximidade")
+    public  ResponseEntity<List<PontoDeInteresse>> listarPorProximidade(@RequestParam(value="x") Integer x,@RequestParam(value="y") Integer y,@RequestParam(value="dmax") Double distanciaMax){
+        return ResponseEntity.ok(pontoDeInteresseService.listarPorProximidade(x,y,distanciaMax));
+    }
 }
